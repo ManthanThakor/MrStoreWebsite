@@ -1,1 +1,27 @@
 @import "../../css-config/mixins.scss";
+
+.main-header{
+width: 100%;
+padding: 0 20px;
+background-color: #212121;
+color: white;
+border-bottom: 1px solid rgba(0,0,0, 0.1);
+z-index: 999;
+    .header-content{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+        max-width: 1200px;
+        margin: 0 auto;
+        .left{
+
+        }
+        .center{
+
+        }
+        .right{
+
+        }
+    }
+}
