@@ -1,6 +1,9 @@
 import "./SingleProduct.scss";
 const SingleProduct = () => {
-    return <div>Single Product</div>;
+    return (
+       <>
+       </> 
+    );
 };
 
 export default SingleProduct;
