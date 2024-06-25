@@ -38,24 +38,28 @@
             font-size: 28px;
         }
     }
-    .form{
+
+    .form {
         display: flex;
         gap: 5px;
         margin-bottom: 10px;
-        input{
+
+        input {
             width: 200px;
             height: 40px;
             border-radius: 0;
-            border: 1px solid rgba(0,0,0,0.2);
+            border: 1px solid rgba(0, 0, 0, 0.2);
             padding: 0 12px;
             font-size: 16px;
             outline: 0;
-            @include md{
+
+            @include md {
                 width: 300px;
             }
 
         }
-        button{
+
+        button {
             outline: 0;
             border: 0;
             height: 40px;
@@ -68,25 +72,29 @@
             color: white;
             background-color: #8e2de2;
             border-bottom: 3px solid #8e2de2;
-            @include md{
+
+            @include md {
                 width: 120px;
 
             }
         }
     }
-    .text{
+
+    .text {
         margin-bottom: 20px;
         font-size: 14px;
-color: rgba(0,0,0,0.5);
+        color: rgba(0, 0, 0, 0.5);
 
     }
-    .social-icons{
+
+    .social-icons {
         display: flex;
-        gap:10px;
-        .icon{
+        gap: 10px;
+
+        .icon {
             width: 30px;
             height: 30px;
-            background-color: rgba(0,0,0,0.8);
+            background-color: rgba(0, 0, 0, 0.8);
             border-radius: 50%;
             color: white;
             display: flex;
