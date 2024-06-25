@@ -8,13 +8,12 @@ const Banner = () => {
         <div className="content">
           <div className="text-content">
             <h1>SALES</h1>
-            <P>
+            <p>
                 Covallis interdum purus adipiscing dis partuient posuere ac a quam a eleifend montes partuient posuere curae tempor
-            </P>
+            </p>
             <div className="ctas">
                 <div className="banner-cta">Read More</div>
                 <div className="banner-cta v2">Shop Now</div>
-
             </div>
           </div>
           <img src={BannerImg} alt="" />
