@@ -7,11 +7,13 @@
     color: white;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     z-index: 999;
-@include md{
-    padding: 0 40px;
-}
 
-}
+    @include md {
+        padding: 0 40px;
+    }
+
+
+
     .header-content {
         display: flex;
         justify-content: space-between;
@@ -19,18 +21,20 @@
         height: 50px;
         max-width: 1200px;
         margin: 0 auto;
-        @include md{
-           height: 80px;
+
+        @include md {
+            height: 80px;
         }
-        
+
         .left {
             list-style-type: none;
             display: none;
             gap: 25px;
-            @include md{
+
+            @include md {
                 display: flex;
-             }
-             
+            }
+
             li {
                 font-size: 14px;
                 font-weight: 600;
@@ -43,29 +47,34 @@
             font-size: 22px;
             font-weight: 700;
             cursor: pointer;
-            @include md{
+
+            @include md {
                 font-size: 34px;
                 position: absolute;
                 left: 50%;
                 transform: translateX(-50%);
-             }
+            }
         }
 
         .right {
             display: flex;
             align-items: center;
             gap: 20px;
-            svg{
+
+            svg {
                 font-size: 20px;
                 cursor: pointer;
-                @include md{
+
+                @include md {
                     font-size: 24px;
-                 }
-                 
+                }
+
             }
-            .cart-icon{
+
+            .cart-icon {
                 position: relative;
-                span{
+
+                span {
                     min-width: 20px;
                     text-align: center;
                     background-color: #8e2de2;
@@ -78,6 +87,24 @@
                     border-radius: 10px;
                 }
             }
-         
+
         }
+
     }
+
+    &.sticky-header {
+        position: sticky;
+        top: 0;
+        transform: translateY(-80px);
+        animation: stickyheader 0.3s ease forwards;
+    }
+}
+
+@keyframes stickyheader{
+    0%{
+        transform: translateY(-80px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}

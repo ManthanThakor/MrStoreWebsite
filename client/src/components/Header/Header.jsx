@@ -9,30 +9,42 @@ import { Context } from "../../utils/context";
 
 import "./Header.scss";
 const Header = () => {
-  return(
+  const [scrolled, setScrolled] = useState(false);
+  const handleScroll = () => {
+    const offset = window.scrollY;
+    if (offset > 200) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
 
-  
-  <>
-    <header className="main-header">
-      <div className="header-content">
-      <ul className="left">
-        <li>Home</li>
-        <li>About</li>
-        <li>Categories</li>
-      </ul>
-      <div className="center">MRSTORE</div>
-      <div className="right">
-        <TbSearch />
-        <AiOutlineHeart /> 
-        <span className="cart-icon">
-            <CgShoppingCart/>
-            <span>5</span>
-        </span>
-      </div>
-      </div>
-    </header>
-  </>
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+  }, []);
 
-)};
+  return (
+    <>
+      <header className={`main-header ${scrolled ? `sticky-header`: '' }`}>
+        <div className="header-content">
+          <ul className="left">
+            <li>Home</li>
+            <li>About</li>
+            <li>Categories</li>
+          </ul>
+          <div className="center">MRSTORE</div>
+          <div className="right">
+            <TbSearch />
+            <AiOutlineHeart />
+            <span className="cart-icon">
+              <CgShoppingCart />
+              <span>5</span>
+            </span>
+          </div>
+        </div>
+      </header>
+    </>
+  );
+};
 
 export default Header;
