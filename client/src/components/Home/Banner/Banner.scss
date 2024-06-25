@@ -26,10 +26,17 @@
         max-width: calc(100% - 20px);
         margin: 0 auto;
         position: relative;
+        height: auto;
 
         @include md {
             flex-direction: row;
             max-width: 1200px;
+            height: 500px;
+        }
+        @include lg {
+            flex-direction: row;
+            max-width: 1200px;
+            height: 600px;
         }
 
         .banner-img {
@@ -42,13 +49,16 @@
             height: auto;
 
             @include md {
-              
+                height: 300px;
+
            justify-content: center;
            align-items: center;
+           max-width: 300px;
+
             }
             @include lg {
                 height: 400px;
-                max-width: 300px;
+                max-width: 400px;
 
             }
             @include xxl {
@@ -81,6 +91,9 @@
                 margin-bottom: 20px;
 
                 @include md {
+                    font-size: 130px;
+                }
+                @include lg {
                     font-size: 180px;
                 }
             }
