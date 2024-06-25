@@ -53,6 +53,14 @@ const Footer = () => {
             <span className="text">Contact us</span>
           </div>
         </div>
+        <div className="bottom-bar">
+          <div className="bottom-bar-content">
+            <div className="text">
+              &copy; 2024 MRSTORE. Created by Manthan. All rights reserved
+            </div>
+            <img src={Payment} />
+          </div>
+        </div>
       </footer>
     </>
   );
