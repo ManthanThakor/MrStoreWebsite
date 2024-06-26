@@ -8,7 +8,7 @@ const Product = ({ id, data }) => {
         <img src={imageUrl} alt="" />
       </div>
       <div className="prod-details">
-        <span className="name">{data.name}</span>
+        <span className="name">{data.title}</span>
         <span className="price">&#8377;{data.price}</span>
       </div>
     </div>
