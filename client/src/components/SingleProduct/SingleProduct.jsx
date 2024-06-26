@@ -20,7 +20,7 @@ const SingleProduct = () => {
           <div className="right">
             <span className="name">Product Name</span>
             <span className="price">Price</span>
-            <span className="dec">Product Description</span>
+            <span className="desc">Product Description</span>
             <div className="cart-button">
               <div className="quantity-buttons">
                 <span>-</span>
