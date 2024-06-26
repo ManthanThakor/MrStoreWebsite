@@ -1,19 +1,17 @@
 import "./Product.scss";
-import prod from "../../../assets/products/earbuds-prod-1.webp";
 
-const Product = () => {
+const Product = ({ id, data }) => {
+  const imageUrl = import.meta.env.VITE_DEV_URL + data.img.data[0].attributes.url;
   return (
-    <>
-      <div className="product-card">
-        <div className="thumbnail">
-          <img src={prod} alt="" />
-        </div>
-        <div className="prod-details">
-          <span className="name">Product name</span>
-          <span className="price">&#8377;499</span>
-        </div>
+    <div className="product-card">
+      <div className="thumbnail">
+        <img src={imageUrl} alt="" />
       </div>
-    </>
+      <div className="prod-details">
+        <span className="name">{data.name}</span>
+        <span className="price">&#8377;{data.price}</span>
+      </div>
+    </div>
   );
 };
 
