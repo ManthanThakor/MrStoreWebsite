@@ -12,3 +12,4 @@ Currently, two official plugins are available:
 - npm install react-icons
 - npm install react-dom
 - npm run dev 
+- npx create-strapi-app@latest my-project
