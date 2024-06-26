@@ -10,6 +10,8 @@ import { Context } from "../../utils/context";
 import "./Header.scss";
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [showcart, setShowcart] = useState(false);
+
   const handleScroll = () => {
     const offset = window.scrollY;
     if (offset > 200) {
@@ -36,13 +38,14 @@ const Header = () => {
           <div className="right">
             <TbSearch />
             <AiOutlineHeart />
-            <span className="cart-icon">
+            <span className="cart-icon" onClick={() => setShowcart(true) }>
               <CgShoppingCart />
               <span>5</span>
             </span>
           </div>
         </div>
       </header>
+      {showcart && <Cart setShowcart={setShowcart}/>}
     </>
   );
 };

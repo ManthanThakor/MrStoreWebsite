@@ -7,9 +7,14 @@ const Cart = () => {
     <>
       <div className="cart-panel">
         <div className="opac-layer"></div>
-        <div className="cart-content"></div>
+        <div className="cart-content">
+          <span className="heading">Shopping Cart</span>
+          <span className="close-btn">
+            <MdClose />
+            <span className="text">close</span>
+          </span>
+        </div>
       </div>
-      ;
     </>
   );
 };
