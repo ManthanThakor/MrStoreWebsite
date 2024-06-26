@@ -1,1 +1,16 @@
 @import "../../css-config/mixins.scss";
+
+
+.single-product-main-content{
+    margin: 20px 0;
+    @include md{
+        margin:75px 0;
+    }
+    .layout{
+        max-width: calc(100% - 20px);
+        margin: 0 auto;
+        @include md{
+            max-width: 1200px;
+        }
+    }
+}
