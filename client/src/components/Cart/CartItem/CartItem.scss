@@ -54,13 +54,12 @@
           .quantity-buttons {
             width: fit-content;
             display: flex;
-            border: 2px solid rgba(0, 0, 0, 0.2);
-            margin-right: 10px;
-            height: 50px;
-
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            height: 30px;
+margin-bottom: 8px;
             span {
-                font-size: 18px;
-                width: 40px;
+                font-size: 14px;
+                width: 30px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -68,18 +67,23 @@
                 color: #6b6b6b;
 
                 &:nth-child(1) {
-                    border-right: 2px solid rgba(0, 0, 0, 0.2);
+                    font-size: 18px;
+                    border-right: 1px solid rgba(0, 0, 0, 0.2);
                 }
 
                 &:nth-child(2) {
-                    width: 60px;
+                    width: 40px;
                 }
 
                 &:nth-child(3) {
-                    border-left: 2px solid rgba(0, 0, 0, 0.2);
+                    font-size: 18px;
+                    border-left: 1px solid rgba(0, 0, 0, 0.2);
                 }
             }
         }
+      }
+      &:hover{
+      background-color: rgba(0, 0, 0, 0.05);
       }
     }
   }
