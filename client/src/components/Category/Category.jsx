@@ -15,11 +15,13 @@ const Category = () => {
     return <div>Error: {error.message}</div>;
   }
 
+  const categoryTitle = data?.data?.[0]?.attributes?.categories?.data?.[0]?.attributes?.title || "Category";
+
   return (
     <div className="category-main-content">
       <div className="layout">
         <div className="category-title">
-          Category Title
+          {categoryTitle}
         </div>
         <Products products={data} innerPage={true} />
       </div>
