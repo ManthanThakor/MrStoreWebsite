@@ -15,7 +15,7 @@ import { useState } from "react";
 
 const SingleProduct = () => {
   
-  const [quantity, setQuantity] = useState(1); // Corrected line
+  const [quantity, setQuantity] = useState(1); 
   const { id } = useParams();
   const {data } = useFetch(`/api/products?populate=*&[filters][id]=${id}`);
 
@@ -73,7 +73,7 @@ const SingleProduct = () => {
             </div>
           </div>
         </div>
-        <RelatedProducts />
+        <RelatedProducts productId={id} categoryId={product.categories.data[0].id} />
       </div>
     </div>
   );
