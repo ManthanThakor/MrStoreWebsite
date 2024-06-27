@@ -2,8 +2,11 @@ import { MdClose } from "react-icons/md";
 import { BsCartX } from "react-icons/bs";
 import "./Cart.scss";
 import CartItem from "./CartItem/CartItem";
+import { useContext } from "react";
+import { Context } from "../../utils/context";
 
 const Cart = ({ setShowcart }) => {
+ const {cartItems, cartSubTotal} =  useContext(Context)
   return (
     <>
       <div className="cart-panel">
@@ -26,7 +29,7 @@ const Cart = ({ setShowcart }) => {
           <div className="cart-footer">
             <div className="subtotal">
               <span className="text">Subtotal</span>
-              <span className="text total">&#8377;499</span>
+              <span className="text total">&#8377;{cartSubTotal}</span>
             </div>
             <div className="button">
             <button className="checkout-cta">CHECKOUT</button>
