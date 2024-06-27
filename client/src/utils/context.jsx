@@ -13,15 +13,19 @@ const AppContext = ({ children }) => {
   const location = useLocation();
 
   useEffect(() => {
+    let count = 0;
+    cartItems.map((item) => (count += item.attributes.quantity));
+    setCartCount(count);
+
     let subTotal = 0;
     let itemCount = 0;
     cartItems.map((item) => {
       subTotal += item.attributes.price * item.attributes.quantity;
       itemCount += item.attributes.quantity;
-      return null; // add this line to avoid warnings
+      return null; 
     });
     setCartSubTotal(subTotal);
-    setCartCount(itemCount); // you may want to keep track of item count as well
+    setCartCount(itemCount);
   }, [cartItems]);
 
   const handleAddToCart = (product, quantity) => {
