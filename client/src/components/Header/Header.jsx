@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { TbSearch } from "react-icons/tb";
 import { CgShoppingCart } from "react-icons/cg";
 import { AiOutlineHeart } from "react-icons/ai";
@@ -8,10 +8,12 @@ import Cart from "../Cart/Cart";
 import { Context } from "../../utils/context";
 
 import "./Header.scss";
+
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [showcart, setShowcart] = useState(false);
   const [showsearch, setShowsearch] = useState(false);
+  const navigate = useNavigate();  // Initialize navigate here
 
   const handleScroll = () => {
     const offset = window.scrollY;
@@ -24,31 +26,33 @@ const Header = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
     <>
-      <header className={`main-header ${scrolled ? `sticky-header`: '' }`}>
+      <header className={`main-header ${scrolled ? `sticky-header` : ''}`}>
         <div className="header-content">
           <ul className="left">
-            <li>Home</li>
+            <li onClick={() => navigate("/")}>Home</li>
             <li>About</li>
             <li>Categories</li>
           </ul>
-          <div className="center">MRSTORE</div>
+          <div className="center" onClick={() => navigate("/")}>MRSTORE</div>
           <div className="right">
-            <TbSearch onClick={() => setShowsearch(true) }/>
+            <TbSearch onClick={() => setShowsearch(true)} />
             <AiOutlineHeart />
-            <span className="cart-icon" onClick={() => setShowcart(true) }>
+            <span className="cart-icon" onClick={() => setShowcart(true)}>
               <CgShoppingCart />
               <span>5</span>
             </span>
           </div>
         </div>
       </header>
-      {showcart && <Cart setShowcart={setShowcart}/>}
-
-     {showsearch &&  <Search setShowsearch={setShowsearch}/>}
+      {showcart && <Cart setShowcart={setShowcart} />}
+      {showsearch && <Search setShowsearch={setShowsearch} />}
     </>
   );
 };
