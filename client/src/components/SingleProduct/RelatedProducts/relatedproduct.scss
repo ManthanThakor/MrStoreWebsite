@@ -1,0 +1,73 @@
+@import "../../../css-config/mixins.scss";
+
+.related-products {
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+
+  h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .products-list {
+    display: flex;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    flex-wrap: wrap;
+justify-content: center;
+    @include sm {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include md {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include lg {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include xl {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include xxl {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .product {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      .product-image {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+
+      .product-title {
+        font-size: 18px;
+        color: #333;
+        margin-bottom: 5px;
+      }
+
+      .product-price {
+        font-size: 16px;
+        color: #999;
+      }
+    }
+  }
+}
