@@ -30,7 +30,7 @@
         flex-direction: column;
         transform: translateX(100%);
         animation: slidecartpopup 0.3s ease forwards;
-
+        overflow-y: auto; /* Add this line for vertical scrollbar */
         @include md {
             width: 340px;
         }
