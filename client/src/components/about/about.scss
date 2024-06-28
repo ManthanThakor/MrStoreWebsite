@@ -1,0 +1,27 @@
+
+.about-page {
+    padding: 20px;
+  }
+  
+  .about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: justify;
+  }
+  
+  .about-content h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .about-content p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .about-content {
+      padding: 0 10px;
+    }
+  }
+  

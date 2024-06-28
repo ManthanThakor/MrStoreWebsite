@@ -6,7 +6,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import Search from "./Search/Search";
 import Cart from "../Cart/Cart";
 import { Context } from "../../utils/context";
-
+import { Link } from "react-router-dom";
 import "./Header.scss";
 
 const Header = () => {
@@ -38,7 +38,7 @@ const Header = () => {
         <div className="header-content">
           <ul className="left">
             <li onClick={() => navigate("/")}>Home</li>
-            <li>About</li>
+            <li> <Link to="/about">About</Link></li>
             <li>Categories</li>
           </ul>
           <div className="center" onClick={() => navigate("/")}>MRSTORE</div>
