@@ -1,5 +1,4 @@
-
-import React, { useContext, useState, useRef } from "react";
+import React, { useContext, useState, useRef, useEffect } from "react";
 import { Context } from "../../utils/context";
 import CartItem from "../Cart/CartItem/CartItem";
 import "./Paymentpage.scss";
@@ -14,6 +13,8 @@ const PaymentPage = () => {
   const [isCardFlipped, setIsCardFlipped] = useState(false);
   const [focusElementStyle, setFocusElementStyle] = useState(null);
   const [isInputFocused, setIsInputFocused] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false); // State for modal visibility
+  const [redirect, setRedirect] = useState(false);
 
   const cardNumberRef = useRef(null);
   const cardNameRef = useRef(null);
@@ -47,7 +48,14 @@ const PaymentPage = () => {
   const generateCardNumberMask = () => {
     return getCardType() === "amex" ? amexCardMask : otherCardMask;
   };
-
+  useEffect(() => {
+    if (redirect) {
+      window.location.href = '/'; // Redirect to the home page URL
+    }
+  }, [redirect]);
+  const handleRedirectHome = () => {
+    setRedirect(true); // Set redirect state to true
+  };
   const minCardYear = new Date().getFullYear();
 
   const minCardMonth = () => {
@@ -144,6 +152,20 @@ const PaymentPage = () => {
     setCardYear(value);
   };
 
+  const handleSubmit = () => {
+    // Perform validation
+    if (cardName && cardNumber && cardMonth && cardYear && cardCvv) {
+      // Simulate payment success
+      setTimeout(() => {
+        setShowSuccessModal(true); // Show success modal after a delay
+      }, 1000); // Adjust delay as needed
+    }
+  };
+
+  const closeModal = () => {
+    setShowSuccessModal(false);
+  };
+
   return (
     <div className="payment-page">
       <h2>Payment Details</h2>
@@ -159,12 +181,11 @@ const PaymentPage = () => {
         <span className="text total">&#8377;{cartSubTotal}</span>
       </div>
 
-    
-
       <div className="wrapper" id="app">
         <div className="card-form">
           <div className="card-list">
             <div className={`card-item ${isCardFlipped ? "-active" : ""}`}>
+              {/* Card Front */}
               <div className="card-item__side -front">
                 <div
                   className="card-item__focus"
@@ -232,6 +253,8 @@ const PaymentPage = () => {
                   </div>
                 </div>
               </div>
+
+              {/* Card Back */}
               <div className="card-item__side -back">
                 <div className="card-item__cover">
                   <img
@@ -243,7 +266,9 @@ const PaymentPage = () => {
                 <div className="card-item__band"></div>
                 <div className="card-item__cvv">
                   <div className="card-item__cvvTitle">CVV</div>
-                  <div className="card-item__cvvBand">{cardCvv.replace(/\d/g, "*")}</div>
+                  <div className="card-item__cvvBand">
+                    {cardCvv.replace(/\d/g, "*")}
+                  </div>
                   <div className="card-item__type">
                     <img
                       src={`https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/${getCardType()}.png`}
@@ -255,6 +280,8 @@ const PaymentPage = () => {
               </div>
             </div>
           </div>
+
+          {/* Card Form Inputs */}
           <div className="card-form__inner">
             <div className="card-input">
               <label htmlFor="cardNumber" className="card-input__label">
@@ -311,11 +338,16 @@ const PaymentPage = () => {
                     <option value="" disabled>
                       Month
                     </option>
-                    {Array.from({ length: 12 }, (_, i) => i + 1).map((month) => (
-                      <option key={month} value={month < 10 ? `0${month}` : month}>
-                        {month < 10 ? `0${month}` : month}
-                      </option>
-                    ))}
+                    {Array.from({ length: 12 }, (_, i) => i + 1).map(
+                      (month) => (
+                        <option
+                          key={month}
+                          value={month < 10 ? `0${month}` : month}
+                        >
+                          {month < 10 ? `0${month}` : month}
+                        </option>
+                      )
+                    )}
                   </select>
                   <select
                     className="card-input__input -select"
@@ -363,10 +395,54 @@ const PaymentPage = () => {
                 </div>
               </div>
             </div>
-            <button className="card-form__button">Submit</button>
+
+            {/* Submit Button */}
+            <button className="card-form__button" onClick={handleSubmit}>
+              Submit
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Success Modal */}
+      {showSuccessModal && (
+        <div className="modal">
+          <div class="wrapperAlert">
+            <div class="contentAlert">
+              <div class="topHalf">
+                <p>
+                  <svg viewBox="0 0 512 512" width="100" title="check-circle">
+                    <path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z" />
+                  </svg>
+                </p>
+                <h1>Your payment was successful</h1>
+
+                <ul class="bg-bubbles">
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
+
+              <div class="bottomHalf">
+                <p>
+                Thank you for your payment. we will
+                be in contact with more details shortly
+                </p>
+
+                <button id="alertMO" onClick={handleRedirectHome}>Home</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
