@@ -11,6 +11,8 @@ import Newsletter from "./components/Footer/Newsletter/Newsletter";
 import AppContext from "./utils/context";
 import PaymentPage from "./components/payment/PaymentPage";
 import About from "./components/about/about";
+import Categories from "./components/categories/categories";
+
 function App() {
   return (
     <BrowserRouter>
@@ -19,7 +21,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/category/:id" element={<Category />} />
+          <Route path="/categories" element={<Categories />} /> {/* Route for Categories */}
+          <Route path="/categories/:id" element={<Category />} /> {/* Route for Category */}
           <Route path="/product/:id" element={<SingleProduct />} />
           <Route path="/checkout" element={<PaymentPage />} />
         </Routes>

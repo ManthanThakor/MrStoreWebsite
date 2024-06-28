@@ -1,20 +1,21 @@
-import { useEffect, useState, useContext } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+// Header.jsx
+
+import React, { useState, useContext , useEffect } from "react";
+import { Navigate, useNavigate, Link } from "react-router-dom";
 import { TbSearch } from "react-icons/tb";
 import { CgShoppingCart } from "react-icons/cg";
 import { AiOutlineHeart } from "react-icons/ai";
 import Search from "./Search/Search";
 import Cart from "../Cart/Cart";
 import { Context } from "../../utils/context";
-import { Link } from "react-router-dom";
 import "./Header.scss";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [showCart, setShowCart] = useState(false);
-  const [showsearch, setShowsearch] = useState(false);
-  const {cartCount} = useContext(Context);
-  const navigate = useNavigate();  // Initialize navigate here
+  const [showSearch, setShowSearch] = useState(false);
+  const { cartCount } = useContext(Context);
+  const navigate = useNavigate(); // Initialize navigate here
 
   const handleScroll = () => {
     const offset = window.scrollY;
@@ -34,16 +35,18 @@ const Header = () => {
 
   return (
     <>
-      <header className={`main-header ${scrolled ? `sticky-header` : ''}`}>
+      <header className={`main-header ${scrolled ? `sticky-header` : ""}`}>
         <div className="header-content">
           <ul className="left">
             <li onClick={() => navigate("/")}>Home</li>
-            <li> <Link to="/about">About</Link></li>
-            <li>Categories</li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/categories">Categories</Link></li> {/* Link to Categories page */}
           </ul>
-          <div className="center" onClick={() => navigate("/")}>MRSTORE</div>
+          <div className="center" onClick={() => navigate("/")}>
+            MRSTORE
+          </div>
           <div className="right">
-            <TbSearch onClick={() => setShowsearch(true)} />
+            <TbSearch onClick={() => setShowSearch(true)} />
             <AiOutlineHeart />
             <span className="cart-icon" onClick={() => setShowCart(true)}>
               <CgShoppingCart />
@@ -53,7 +56,7 @@ const Header = () => {
         </div>
       </header>
       {showCart && <Cart setShowCart={setShowCart} />}
-      {showsearch && <Search setShowsearch={setShowsearch} />}
+      {showSearch && <Search setShowSearch={setShowSearch} />}
     </>
   );
 };
