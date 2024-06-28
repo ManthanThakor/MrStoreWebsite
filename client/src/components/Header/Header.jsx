@@ -11,7 +11,7 @@ import "./Header.scss";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [showcart, setShowcart] = useState(false);
+  const [showCart, setShowCart] = useState(false);
   const [showsearch, setShowsearch] = useState(false);
   const {cartCount} = useContext(Context);
   const navigate = useNavigate();  // Initialize navigate here
@@ -45,14 +45,14 @@ const Header = () => {
           <div className="right">
             <TbSearch onClick={() => setShowsearch(true)} />
             <AiOutlineHeart />
-            <span className="cart-icon" onClick={() => setShowcart(true)}>
+            <span className="cart-icon" onClick={() => setShowCart(true)}>
               <CgShoppingCart />
               {!!cartCount && <span>{cartCount}</span>}
             </span>
           </div>
         </div>
       </header>
-      {showcart && <Cart setShowcart={setShowcart} />}
+      {showCart && <Cart setShowCart={setShowCart} />}
       {showsearch && <Search setShowsearch={setShowsearch} />}
     </>
   );

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchDataFromApi } from "../utils/api"; // Ensure this path is correct
+import { fetchDataFromApi } from "../utils/api"; 
 
 const useFetch = (endpoint) => {
   const [data, setData] = useState(null);
