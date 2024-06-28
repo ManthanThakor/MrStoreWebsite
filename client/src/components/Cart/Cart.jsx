@@ -1,33 +1,25 @@
+import React, { useContext } from 'react';
 import { MdClose } from "react-icons/md";
 import { BsCartX } from "react-icons/bs";
 import "./Cart.scss";
 import CartItem from "./CartItem/CartItem";
-import { useContext } from "react";
 import { Context } from "../../utils/context";
-import { loadStripe } from "@stripe/stripe-js";
-import { makePaymentRequest } from "../../utils/api";
-import { useHistory } from "react-router-dom"; // Import useHistory from React Router
+import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
 
 const Cart = ({ setShowCart }) => {
-  const { cartItems, cartSubTotal } = useContext(Context);
-  const stripePromise = loadStripe(import.meta.env.VITE_APP_STRIPE_PUBLISHABLE_KEY);
-  const history = useHistory(); // Get the history object from React Router
-
-  const handlePayment = async () => {
-    try {
-      const stripe = await stripePromise;
-      const res = await makePaymentRequest.post("/api/orders", { products: cartItems });
-      await stripe.redirectToCheckout({
-        sessionId: res.data.stripeSession.id,
-      });
-    } catch (error) {
-      console.error("Error while making payment:", error);
-    }
-  };
+  const { cartItems, cartSubTotal, handleClearCart } = useContext(Context);
+  const navigate = useNavigate(); // Correct usage of useNavigate
 
   const returnToShop = () => {
     setShowCart(false);
-    history.push("/"); // Redirect to the home page
+    navigate("/");
+  };
+
+  const handleCheckout = () => {
+    // Close the cart panel
+    setShowCart(false);
+    // Navigate to the checkout page
+    navigate("/checkout");
   };
 
   return (
@@ -46,7 +38,9 @@ const Cart = ({ setShowCart }) => {
           <div className="empty-cart">
             <BsCartX />
             <span className="text">No products in the cart.</span>
-            <button className="return-cta" onClick={returnToShop}>RETURN TO SHOP</button>
+            <button className="return-cta" onClick={returnToShop}>
+              RETURN TO SHOP
+            </button>
           </div>
         )}
 
@@ -61,7 +55,7 @@ const Cart = ({ setShowCart }) => {
                 <span className="text total">&#8377;{cartSubTotal}</span>
               </div>
               <div className="button">
-                <button className="checkout-cta" onClick={handlePayment}>
+                <button className="checkout-cta" onClick={handleCheckout}>
                   CHECKOUT
                 </button>
               </div>

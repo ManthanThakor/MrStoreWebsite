@@ -1,0 +1,446 @@
+.payment-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    background-color: #f8f9fa;
+    font-family: 'Roboto', sans-serif;
+  
+    h2 {
+      margin-bottom: 30px;
+      font-size: 2rem;
+      color: #343a40;
+    }
+  
+    .cart-items {
+      width: 100%;
+      max-width: 800px;
+      margin-bottom: 30px;
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+    }
+  
+    .subtotal {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 800px;
+      margin-bottom: 30px;
+      padding: 15px 20px;
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+  
+      .text {
+        font-size: 1.2rem;
+        color: #495057;
+      }
+  
+      .total {
+        font-weight: bold;
+        font-size: 1.4rem;
+        color: #007bff;
+      }
+    }
+  
+    .payment-methods {
+      margin-bottom: 30px;
+  
+      p {
+        font-size: 1.1rem;
+        color: #6c757d;
+      }
+    }
+  
+    .wrapper {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  
+    .card-form {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+  
+      .card-list {
+        position: relative;
+        width: 100%;
+        max-width: 500px;
+        margin-bottom: 30px;
+        perspective: 1000px;
+      }
+  
+      .card-item {
+        width: 100%;
+        height: 300px;
+        border-radius: 15px;
+        position: relative;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        background: linear-gradient(135deg, #4a90e2, #9013fe);
+        color: #fff;
+        
+        &.-active {
+          transform: rotateY(180deg);
+        }
+  
+        &__side {
+          backface-visibility: hidden;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border-radius: 15px;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          padding: 20px;
+          box-sizing: border-box;
+          background-color: #fff;
+  
+          &.-front {
+            background: linear-gradient(135deg, #4a90e2, #9013fe);
+            color: #fff;
+          }
+  
+          &.-back {
+            transform: rotateY(180deg);
+            background-color: #3a3a3a;
+          }
+        }
+  
+        &__cover {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          border-radius: 15px;
+  
+          .card-item__bg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+          }
+        }
+  
+        &__wrapper {
+          position: relative;
+          z-index: 2;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 100%;
+        }
+  
+        &__top {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+  
+          &__type {
+            width: 60px;
+          }
+  
+          &__typeImg {
+            width: 100%;
+            height: auto;
+          }
+        }
+  
+        &__number {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 1.5rem;
+          margin: 20px 0;
+          padding: 10px 15px;
+          border-radius: 10px;
+          background-color: rgba(255, 255, 255, 0.1);
+  
+          .card-item__numberItem {
+            display: inline-block;
+            margin: 0 2px;
+  
+            &.masked {
+                color: transparent;
+                text-shadow: 0 0 5px rgb(255, 255, 255);
+            }
+          }
+        }
+  
+        &__content {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 1rem;
+  
+          .card-item__info {
+            display: flex;
+            flex-direction: column;
+  
+            .card-item__holder {
+              font-size: 0.9rem;
+              opacity: 0.7;
+            }
+  
+            .card-item__name {
+              font-size: 1.2rem;
+            }
+          }
+  
+          .card-item__date {
+            display: flex;
+            align-items: center;
+  
+            .card-item__dateTitle {
+              font-size: 0.9rem;
+              opacity: 0.7;
+              margin-right: 5px;
+            }
+  
+            .card-item__dateItem {
+              font-size: 1.2rem;
+              margin-right: 2px;
+            }
+          }
+        }
+  
+        &__band {
+          width: 100%;
+          height: 50px;
+          background-color: #ffffff85;
+          position: absolute;
+          top: 50px;
+          left: 0;
+        }
+  
+        &__cvv {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 100%;
+  
+          .card-item__cvvTitle {
+            font-size: 0.9rem;
+            opacity: 0.7;
+          }
+  
+          .card-item__cvvBand {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            font-size: 1.5rem;
+          }
+  
+          .card-item__type {
+            width: 60px;
+            align-self: flex-end;
+  
+            .card-item__typeImg {
+              width: 100%;
+              height: auto;
+            }
+          }
+        }
+      }
+  
+      .card-form__inner {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 500px;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+        .card-input {
+          position: relative;
+          margin-bottom: 20px;
+  
+          &__label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+          }
+  
+          &__input {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+  
+            &:focus {
+              outline: none;
+              border-color: #007bff;
+              box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+            }
+  
+            &.-select {
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;
+              
+            }
+          }
+  
+          &__focus {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            box-shadow: 0 0 0 2px #007bff;
+            transition: all 0.3s ease;
+          }
+        }
+  
+        .card-form__row {
+          display: flex;
+          justify-content: space-between;
+        }
+  
+        .card-form__col {
+          flex: 1;
+          margin-right: 10px;
+        
+        
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+  
+        .card-form__group {
+          margin-bottom: 20px;
+        }
+      }
+  
+      
+    }
+  }
+  
+
+
+    .card-form__button {
+      flex: 1;
+      padding: 10px 20px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      background-color: #007bff;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+
+      &.-primary {
+        background-color: #28a745;
+
+        &:hover {
+          background-color: #218838;
+        }
+      }
+
+      &.-secondary {
+        background-color: #6c757d;
+
+        &:hover {
+          background-color: #5a6268;
+        }
+      }
+
+      & + .card-form__button {
+        margin-left: 10px;
+      }
+    }
+    .card-products {
+        .card-product {
+          display: flex;
+          align-items: center;
+          padding: 10px;
+          border-bottom: 1px solid #ccc;
+      
+          .img-container {
+            width: 80px;
+            height: 80px;
+            margin-right: 10px;
+      
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              border-radius: 5px;
+            }
+          }
+      
+          .prod-details {
+            flex: 1;
+      
+            .name {
+              display: flex;
+              align-items: center;
+              font-weight: bold;
+      
+              .close-btn {
+                margin-left: 10px;
+                cursor: pointer;
+                font-size: 20px;
+                color: #333;
+      
+                &:hover {
+                  color: #ff0000;
+                }
+              }
+            }
+      
+            .quantity-buttons {
+              display: flex;
+              align-items: center;
+              margin-top: 5px;
+      
+              span {
+                padding: 5px 10px;
+                margin: 0 2px;
+                cursor: pointer;
+                background-color: #f0f0f0;
+                border-radius: 5px;
+                font-weight: bold;
+      
+                &:hover {
+                  background-color: #e0e0e0;
+                }
+              }
+            }
+      
+            .text {
+              margin-top: 5px;
+              font-size: 14px;
+      
+              .highlight {
+                margin-left: 5px;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
