@@ -1,3 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap");
+
+
+
+.main-title-about {
+    
+  padding: 60px 20px;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 40px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+
+  .about-header {
+    margin-bottom: 20px;
+    h2 {
+      font-size: 2.5rem;
+      color: #f2709c;
+      margin-bottom: 10px;
+      position: relative;
+
+      &::after {
+        content: '';
+        width: 50px;
+        height: 4px;
+        background: #f2709c;
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  .about-content {
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin: 20px 0;
+      position: relative;
+      padding-left: 30px;
+
+      .icon {
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 1.5rem;
+        color: #f2709c;
+        transform: translateY(50%);
+      }
+    }
+  }
+}
+
+
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;800&display=swap");
 @mixin mQ($rem) {
   @media screen and (min-width: $rem) {
@@ -7,20 +63,16 @@
 
 $position: -0.375rem;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-body {
-  background: #171717;
-  min-height: 100vh;
-}
 
+.team-sec{
+
+    background: #171717;
 img {
   max-width: 100%;
   display: block;
+  object-fit: cover;
+  object-position: center
 }
 
 ul {
@@ -50,8 +102,12 @@ section {
   h2,
   h3 {
     letter-spacing: 0.035rem;
+    padding-top: 10px;
   }
-
+.sm-t{
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
   p {
     line-height: 1.6;
     color: #a3a3a3;
@@ -154,6 +210,8 @@ section {
       img {
         filter: grayscale(100%);
         transition: 0.5s ease;
+        object-fit: cover;
+        object-position: center
       }
 
       &-content {
@@ -207,4 +265,5 @@ section {
       }
     }
   }
+}
 }
