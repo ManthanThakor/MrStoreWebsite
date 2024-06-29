@@ -40,7 +40,9 @@ const Header = () => {
           <ul className="left">
             <li onClick={() => navigate("/")}>Home</li>
             <li><Link to="/about">About</Link></li>
-            <li><Link to="/categories">Categories</Link></li> {/* Link to Categories page */}
+            <li><Link to="/categories">Categories</Link></li> 
+            <li><Link to="/contact us">Contact Us</Link></li> 
+
           </ul>
           <div className="center" onClick={() => navigate("/")}>
             MRSTORE

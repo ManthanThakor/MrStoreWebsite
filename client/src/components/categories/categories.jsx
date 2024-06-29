@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import useFetch from "../../hooks/usefetch";
-import "./categories.scss"; // Make sure to add necessary styles
+import "./categories.scss"; 
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);

@@ -10,7 +10,7 @@ import AppContext from "./utils/context";
 import PaymentPage from "./components/payment/PaymentPage";
 import About from "./components/about/about";
 import Categories from "./components/categories/categories";
-
+import Contact from "./components/contact/contact";
 function App() {
   return (
     <BrowserRouter>
@@ -19,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/contact us" element={<Contact />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/categories/:id" element={<Category />} />
           <Route path="/product/:id" element={<SingleProduct />} />
