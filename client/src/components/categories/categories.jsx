@@ -1,8 +1,7 @@
-// Categories.jsx
-
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import useFetch from "../../hooks/usefetch";
+import "./categories.scss"; // Make sure to add necessary styles
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
@@ -28,7 +27,9 @@ const Categories = () => {
       <ul>
         {categories.map((category) => (
           <li key={category.id}>
-            <Link to={`/categories/${category.id}`}>{category.attributes.title}</Link>
+            <Link to={`/categories/${category.id}`}>
+              <span>{category.attributes.title}</span>
+            </Link>
           </li>
         ))}
       </ul>

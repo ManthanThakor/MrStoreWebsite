@@ -5,6 +5,7 @@ import Products from "../Products/Products";
 import { useEffect, useContext } from "react";
 import { fetchDataFromApi } from "../../utils/api";
 import { Context } from "../../utils/context";
+import Categories from "../categories/categories";
 
 const Home = () => {
   const { categories, setCategories, products, setProducts } = useContext(Context);
@@ -32,7 +33,7 @@ const Home = () => {
         <Banner />
         <div className="main-content">
           <div className="layout">
-            <Category categories={categories} />
+            <Categories categories={categories} />
             <Products products={products} headingText="Popular Products" />
           </div>
         </div>

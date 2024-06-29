@@ -1,5 +1,3 @@
-// App.jsx
-
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
@@ -21,8 +19,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/categories" element={<Categories />} /> {/* Route for Categories */}
-          <Route path="/categories/:id" element={<Category />} /> {/* Route for Category */}
+          <Route path="/categories" element={<Categories />} />
+          <Route path="/categories/:id" element={<Category />} />
           <Route path="/product/:id" element={<SingleProduct />} />
           <Route path="/checkout" element={<PaymentPage />} />
         </Routes>
