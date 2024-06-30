@@ -14,3 +14,4 @@ Currently, two official plugins are available:
 - npm run dev 
 - npx create-strapi-app@latest my-project
 - npm install axios
+- npm install react-router-dom

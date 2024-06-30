@@ -1,5 +1,102 @@
 @import "../../css-config/mixins.scss";
 
+.nav-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  
+    &.active {
+      color: red;
+    }
+  
+    &:hover {
+      color: #ff0000; /* Optional: Add hover effect */
+    }
+  }
+  
+  .main-header {
+    width: 100%;
+    padding: 0 20px;
+    background-color: #212121;
+    color: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    &.sticky-header {
+        position: sticky;
+        top: 0;
+        transform: translateY(-80px);
+        animation: stickyheader 0.3s ease forwards;
+    }
+  
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+  
+      .left {
+        display: flex;
+        list-style: none;
+  
+        li {
+          margin-right: 20px;
+  
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+  
+      .center {
+        cursor: pointer;
+        font-size: 24px;
+        font-weight: bold;
+      }
+  
+      .right {
+        display: flex;
+        align-items: center;
+  
+        .cart-icon {
+          position: relative;
+  
+          span {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #ff0000;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 12px;
+          }
+        }
+  
+        svg {
+          margin-left: 20px;
+          cursor: pointer;
+          font-size: 24px;
+        }
+      }
+    }
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .main-header {
     width: 100%;
     padding: 0 20px;
