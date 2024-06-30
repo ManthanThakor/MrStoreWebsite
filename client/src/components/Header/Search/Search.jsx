@@ -4,7 +4,7 @@ import "./Search.scss";
 import { useNavigate } from "react-router-dom";
 import usefetch from "../../../hooks/usefetch";
 
-const Search = ({ setShowsearch }) => {
+const Search = ({ setShowSearch }) => {
   const [query, setQuery] = useState("");
   const [animateOut, setAnimateOut] = useState(false);
   const navigate = useNavigate();
@@ -21,11 +21,11 @@ const Search = ({ setShowsearch }) => {
   useEffect(() => {
     if (animateOut) {
       const timer = setTimeout(() => {
-        setShowsearch(false);
+        setShowSearch(false);
       }, 500);
       return () => clearTimeout(timer);
     }
-  }, [animateOut, setShowsearch]);
+  }, [animateOut, setShowSearch]);
 
   return (
     <div className={`search-model ${animateOut ? "slide-out" : ""}`}>
@@ -35,13 +35,13 @@ const Search = ({ setShowsearch }) => {
       </div>
       <div className="search-result-content">
         <div className="search-result">
-          {query.length > 0 && data && data.data.map(item => (
+          {query.length > 0 && data && data.data.map((item) => (
             <div key={item.id} className="search-result-item" onClick={() => {
               navigate(`/product/${item.id}`);
-              handleClose(); // Assuming this is intended to be a function call
+              handleClose();
             }}>
               <div className="img-container">
-                <img src={import.meta.env.VITE_DEV_URL + item.attributes.img.data[0].attributes.url} alt="Product" />
+                <img src={`${import.meta.env.VITE_DEV_URL}${item.attributes.img.data[0].attributes.url}`} alt="Product" />
               </div>
               <div className="prod-details">
                 <span className="name">{item.attributes.title}</span>

@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { Navigate, useNavigate, NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { TbSearch } from "react-icons/tb";
 import { CgShoppingCart } from "react-icons/cg";
 import { AiOutlineHeart } from "react-icons/ai";
@@ -39,7 +39,7 @@ const Header = () => {
             <li><NavLink exact to="/" className="nav-link" activeClassName="active">Home</NavLink></li>
             <li><NavLink to="/about" className="nav-link" activeClassName="active">About</NavLink></li>
             <li><NavLink to="/categories" className="nav-link" activeClassName="active">Categories</NavLink></li>
-            <li><NavLink to="/contact us" className="nav-link" activeClassName="active">Contact Us</NavLink></li>
+            <li><NavLink to="/contact-us" className="nav-link" activeClassName="active">Contact Us</NavLink></li>
           </ul>
           <div className="center" onClick={() => navigate("/")}>
             MRSTORE
