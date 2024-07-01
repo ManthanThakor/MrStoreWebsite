@@ -16,10 +16,10 @@
     background-color: #f0f0f0;
     padding: 20px;
     border-radius: 8px;
-    transition: transform 0.3s ease;
-
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     &:hover {
       transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(255, 0, 0, 0.481);
     }
 
     .category-image {
@@ -46,4 +46,7 @@
       }
     }
   }
+}
+a {
+  text-decoration: none;
 }
