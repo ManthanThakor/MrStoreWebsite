@@ -1,38 +1,52 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import useFetch from "../../hooks/usefetch";
-import "./categories.scss"; 
+import "./categories.scss";
 
 const Categories = () => {
-  const [categories, setCategories] = useState([]);
-  const { data, loading, error } = useFetch("/api/categories"); // Adjust the API endpoint as per your backend setup
-
-  useEffect(() => {
-    if (data && data.data) {
-      setCategories(data.data);
+  // Updated hardcoded data for categories
+  const categories = [
+    {
+      id: 2,
+      title: 'Headphones',
+      description: 'Immerse yourself in high-quality sound with our range of headphones. From over-ear to on-ear styles, find the perfect fit for comfort and clarity, whether you\'re at home, in the studio, or on the go.',
+      image: 'path/to/headphones-image.jpg',
+    },
+    {
+      id: 3,
+      title: 'Wireless Earbuds',
+      description: 'Experience true freedom with our wireless earbuds. Designed for active lifestyles, these earbuds offer superior sound, long battery life, and seamless connectivity, making them perfect for workouts, commuting, and everything in between.',
+      image: 'path/to/wireless-earbuds-image.jpg',
+    },
+    {
+      id: 4,
+      title: 'Bluetooth Speaker',
+      description: 'Take your music anywhere with our Bluetooth speakers. Compact, portable, and powerful, these speakers deliver crisp, clear sound whether you\'re at the beach, having a picnic, or hosting a party at home.',
+      image: 'path/to/bluetooth-speaker-image.jpg',
+    },
+    {
+      id: 5,
+      title: 'Smart Watches',
+      description: 'Stay connected and track your fitness goals with our smartwatches. Featuring the latest technology, these watches offer notifications, health monitoring, and customizable faces, all wrapped in stylish designs suitable for any occasion.',
+      image: 'path/to/smart-watches-image.jpg',
     }
-  }, [data]);
-
-  if (loading) {
-    return <div>Loading categories...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
+  ];
 
   return (
     <div className="categories-list">
       <h2>Categories</h2>
-      <ul>
-        {categories.map((category) => (
-          <li key={category.id}>
-            <Link to={`/categories/${category.id}`}>
-              <span>{category.attributes.title}</span>
-            </Link>
-          </li>
+      <div className="categories-grid">
+        {categories.map(category => (
+          <Link to={`/categories/${category.id}`} key={category.id} className="category-card">
+            <div className="category-image">
+              <img src={category.image} alt={category.title} />
+            </div>
+            <div className="category-info">
+              <h3>{category.title}</h3>
+              <p>{category.description}</p>
+            </div>
+          </Link>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
