@@ -1,207 +1,158 @@
 @import "../../css-config/mixins.scss";
 
 .nav-link {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  
-    &.active {
-      color: red;
-    }
-  
-    &:hover {
-      color: #ff0000; /* Optional: Add hover effect */
-    }
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &.active {
+    color: red;
   }
-  
-  .main-header {
-    width: 100%;
-    padding: 0 20px;
-    background-color: #212121;
-    color: white;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    z-index: 999;
-    &.sticky-header {
-        position: sticky;
-        top: 0;
-        transform: translateY(-80px);
-        animation: stickyheader 0.3s ease forwards;
+
+  &:hover {
+    color: #ff0000;
+  }
+}
+
+.main-header {
+  width: 100%;
+  padding: 0 20px;
+  background-color: #212121;
+  color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 999;
+
+  @include md {
+    padding: 0 40px;
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @include md {
+      height: 80px;
     }
-  
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 0;
-  
-      .left {
+
+    .left {
+      list-style-type: none;
+      display: none;
+      gap: 15px;
+
+      @include lg {
         display: flex;
-        list-style: none;
-  
-        li {
-          margin-right: 20px;
-  
-          &:last-child {
-            margin-right: 0;
-          }
-        }
       }
-  
-      .center {
+
+      li {
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
         cursor: pointer;
-        font-size: 24px;
-        font-weight: bold;
       }
-  
-      .right {
-        display: flex;
-        align-items: center;
-  
-        .cart-icon {
-          position: relative;
-  
-          span {
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            background-color: #ff0000;
-            color: white;
-            border-radius: 50%;
-            padding: 2px 6px;
-            font-size: 12px;
-          }
-        }
-  
-        svg {
-          margin-left: 20px;
-          cursor: pointer;
+    }
+
+    .center {
+      font-size: 22px;
+      font-weight: 700;
+      cursor: pointer;
+
+      @include lg {
+        font-size: 34px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      svg {
+        font-size: 20px;
+        cursor: pointer;
+
+        @include md {
           font-size: 24px;
         }
       }
+
+      .cart-icon {
+        position: relative;
+
+        span {
+          min-width: 20px;
+          text-align: center;
+          background-color: #8e2de2;
+          padding: 2.5px;
+          position: absolute;
+          top: -5px;
+          right: -12px;
+          font-size: 12px;
+          line-height: 1;
+          border-radius: 10px;
+        }
+      }
     }
   }
-  
 
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    font-size: 24px;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.main-header {
-    width: 100%;
-    padding: 0 20px;
-    background-color: #212121;
-    color: white;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    z-index: 999;
-
-    @include md {
-        padding: 0 40px;
+    @include lg {
+      display: none;
     }
+  }
 
-
-
-    .header-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 50px;
-        max-width: 1200px;
-        margin: 0 auto;
-
-        @include md {
-            height: 80px;
-        }
-
-        .left {
-            list-style-type: none;
-            display: none;
-            gap: 15px;
-
-            @include lg {
-                display: flex;
-            }
-
-            li {
-                font-size: 14px;
-                font-weight: 600;
-                text-transform: uppercase;
-                cursor: pointer;
-            }
-        }
-
-        .center {
-            font-size: 22px;
-            font-weight: 700;
-            cursor: pointer;
-
-            @include lg {
-                font-size: 34px;
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-        }
-
-        .right {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-
-            svg {
-                font-size: 20px;
-                cursor: pointer;
-
-                @include md {
-                    font-size: 24px;
-                }
-
-            }
-
-            .cart-icon {
-                position: relative;
-
-                span {
-                    min-width: 20px;
-                    text-align: center;
-                    background-color: #8e2de2;
-                    padding: 2.5px;
-                    position: absolute;
-                    top: -5px;
-                    right: -12px;
-                    font-size: 12px;
-                    line-height: 1;
-                    border-radius: 10px;
-                }
-            }
-
-        }
-
-    }
-
-    &.sticky-header {
-        position: sticky;
-        top: 0;
-        transform: translateY(-80px);
-        animation: stickyheader 0.3s ease forwards;
-    }
 }
 
-@keyframes stickyheader{
-    0%{
-        transform: translateY(-80px);
-    }
-    100%{
-        transform: translateY(0px);
-    }
+
+.nav-link {
+  margin-bottom: 20px;
+}
+
+.nav-content {
+  background-color: #212121;
+  width: 250px;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+
+
+}
+
+.nav-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.show {
+  display: block;
+  transform: translateX(0);
+}
+
+@keyframes stickyheader {
+  0% {
+    transform: translateY(-80px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }

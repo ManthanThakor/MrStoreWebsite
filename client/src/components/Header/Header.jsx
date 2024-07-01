@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { TbSearch } from "react-icons/tb";
 import { CgShoppingCart } from "react-icons/cg";
 import { AiOutlineHeart } from "react-icons/ai";
+import { GiHamburgerMenu } from "react-icons/gi";
 import Search from "./Search/Search";
 import Cart from "../Cart/Cart";
 import { Context } from "../../utils/context";
@@ -12,6 +13,7 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  const [showNav, setShowNav] = useState(false);
   const { cartCount } = useContext(Context);
   const navigate = useNavigate();
 
@@ -52,8 +54,18 @@ const Header = () => {
               {!!cartCount && <span>{cartCount}</span>}
             </span>
           </div>
+          <GiHamburgerMenu className="hamburger" onClick={() => setShowNav(true)} />
         </div>
       </header>
+      <div className={`nav-modal ${showNav ? "show" : ""}`}>
+        <div className="nav-content">
+          <span onClick={() => setShowNav(false)}>Close</span>
+          <NavLink exact to="/" className="nav-link" activeClassName="active" onClick={() => setShowNav(false)}>Home</NavLink>
+          <NavLink to="/about" className="nav-link" activeClassName="active" onClick={() => setShowNav(false)}>About</NavLink>
+          <NavLink to="/categories" className="nav-link" activeClassName="active" onClick={() => setShowNav(false)}>Categories</NavLink>
+          <NavLink to="/contact-us" className="nav-link" activeClassName="active" onClick={() => setShowNav(false)}>Contact Us</NavLink>
+        </div>
+      </div>
       {showCart && <Cart setShowCart={setShowCart} />}
       {showSearch && <Search setShowSearch={setShowSearch} />}
     </>
