@@ -126,9 +126,9 @@
         .left {
             list-style-type: none;
             display: none;
-            gap: 25px;
+            gap: 15px;
 
-            @include md {
+            @include lg {
                 display: flex;
             }
 
@@ -145,7 +145,7 @@
             font-weight: 700;
             cursor: pointer;
 
-            @include md {
+            @include lg {
                 font-size: 34px;
                 position: absolute;
                 left: 50%;
