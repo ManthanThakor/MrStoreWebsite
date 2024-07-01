@@ -7,9 +7,12 @@
         max-width: 1200px;
         margin: 0 auto;
         display: flex;
-        flex-flow: wrap;
+        flex-direction: column;
+        justify-content: center;
+align-items: center;
         gap:20px;
         @include md{
+            flex-direction: row;
             justify-content: space-between;
             padding: 50px 0;
         }
@@ -67,4 +70,9 @@
             }
         }
     }
+}
+
+.cate-foot, .page-foot{
+    flex-direction: column;
+    display: flex;
 }
