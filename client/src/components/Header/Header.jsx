@@ -4,6 +4,7 @@ import { TbSearch } from "react-icons/tb";
 import { CgShoppingCart } from "react-icons/cg";
 import { AiOutlineHeart } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { IoMdCloseCircle } from "react-icons/io";
 import Search from "./Search/Search";
 import Cart from "../Cart/Cart";
 import { Context } from "../../utils/context";
@@ -59,7 +60,7 @@ const Header = () => {
       </header>
       <div className={`nav-modal ${showNav ? "show" : ""}`}>
         <div className="nav-content">
-          <span onClick={() => setShowNav(false)}>Close</span>
+          <IoMdCloseCircle className="close-icon" onClick={() => setShowNav(false)} />
           <NavLink exact to="/" className="nav-link" activeClassName="active" onClick={() => setShowNav(false)}>Home</NavLink>
           <NavLink to="/about" className="nav-link" activeClassName="active" onClick={() => setShowNav(false)}>About</NavLink>
           <NavLink to="/categories" className="nav-link" activeClassName="active" onClick={() => setShowNav(false)}>Categories</NavLink>
