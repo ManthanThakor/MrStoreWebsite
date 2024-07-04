@@ -2,7 +2,7 @@
 
 MrStoreWebsite is a responsive e-commerce website built using React.js and integrated with Stripe for product management and checkout.
 
-![Demo Image](demo_image.png)
+![Demo Image](image.png)
 
 ## Features
 
