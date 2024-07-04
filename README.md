@@ -16,6 +16,8 @@ MrStoreWebsite is a responsive e-commerce website built using React.js and integ
 1. Clone the repository.
 2. Install dependencies using `npm install`.
 3. Start the development server with `npm start`.
+4. Start the client file with `npm run dev`.
+
 
 ## Usage
 
