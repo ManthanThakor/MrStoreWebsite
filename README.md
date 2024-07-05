@@ -9,7 +9,7 @@ MrStoreWebsite is a responsive e-commerce website built using React.js and Strap
 - Responsive design, optimized for mobile and desktop browsers.
 - Product categories include headphones, Bluetooth speakers, wireless earphones, and smartwatches.
 - Seamless add-to-cart functionality.
-- Data fetched from Stripe for product listings.
+- Data fetched from Strapi for product listings.
 
 ## Installation
 
