@@ -28,7 +28,7 @@ MrStoreWebsite is a responsive e-commerce website built using React.js and integ
 ## Technologies Used
 
 - React.js
-- Stripe API
+- Strapi API
 - HTML/CSS/JavaScript
 
 ## Contributing
